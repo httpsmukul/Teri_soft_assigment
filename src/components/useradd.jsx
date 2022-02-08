@@ -12,10 +12,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 
-import FormLabel from "@mui/material/FormLabel";
 import Checkbox from "@mui/material/Checkbox";
 import "./style/cal.css";
 // import { Table } from "./userTable";
@@ -68,9 +65,6 @@ function Day() {
 		setshow_hobbies(!show_hobbies);
 	};
 	const submmit_handel = () => {
-		// console.log(name);
-		// console.log(number);
-		// console.log(email);
 		let Date = date(currentDate);
 		function date(currentDate) {
 			let arr = [];
@@ -107,7 +101,6 @@ function Day() {
 			.get("http://localhost:3001/profile")
 			.then(function (response) {
 				// handle success
-				// console.log(response);
 				setdata(response.data);
 			})
 			.catch(function (error) {
@@ -141,111 +134,114 @@ function Day() {
 	}
 	return (
 		<>
-			<form>
-				<div className="flex_add_menu">
-					<div className="">
-						<Box
-							sx={{
-								display: "flex",
-								alignItems: "center",
-								"& > :not(style)": { m: 1 },
-							}}
-						>
-							<TextField
-								// helperText="Please enter your name"
-								id="demo-helper-text-misaligned"
-								label="Name"
-								onChange={(e) => setname(e.target.value)}
-							/>
-							<TextField
-								id="demo-helper-text-misaligned"
-								label="Email"
-								onChange={(e) => setemail(e.target.value)}
-							/>
-							<TextField
-								id="demo-helper-text-misaligned"
-								label="Phon_no"
-								onChange={(e) => setnumber(e.target.value)}
-							/>
-						</Box>
-					</div>
-					<br />
-					<br />
-					<div>
-						<MuiPickersUtilsProvider utils={DateMomentUtils} className="remove">
-							<KeyboardDatePicker
-								// invalidLabel="string"
-
-								variant="inline"
-								label="age"
-								clearLabel=""
-								value={currentDate}
-								onChange={setCurrentData}
-							/>
-						</MuiPickersUtilsProvider>
-					</div>
-					<div className="gender_main" onClick={gender_handel}>
-						<div>Gender :</div>
-						<FormControl>
-							<RadioGroup
-								row
-								aria-labelledby="demo-row-radio-buttons-group-label"
-								name="row-radio-buttons-group"
+			<div className="fix">
+				<form>
+					<div className="flex_add_menu">
+						<div className="">
+							<Box
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									"& > :not(style)": { m: 1 },
+								}}
 							>
-								<FormControlLabel
-									value="Female"
-									control={<Radio />}
-									label="Female"
-									onClick={female}
+								<TextField
+									id="demo-helper-text-misaligned"
+									label="Name"
+									onChange={(e) => setname(e.target.value)}
 								/>
-								<FormControlLabel
-									value="Male"
-									control={<Radio />}
-									label="Male"
-									onClick={female}
+								<TextField
+									id="demo-helper-text-misaligned"
+									label="Email"
+									onChange={(e) => setemail(e.target.value)}
 								/>
-							</RadioGroup>
-						</FormControl>
-					</div>
-					<div className="hobbies" onClick={handel_hobbies}>
-						Hobbies
-					</div>
+								<TextField
+									id="demo-helper-text-misaligned"
+									label="Phon_no"
+									onChange={(e) => setnumber(e.target.value)}
+								/>
+							</Box>
+						</div>
+						<br />
+						<br />
+						<div>
+							<MuiPickersUtilsProvider
+								utils={DateMomentUtils}
+								className="remove"
+							>
+								<KeyboardDatePicker
+									variant="inline"
+									label="age"
+									clearLabel=""
+									value={currentDate}
+									onChange={setCurrentData}
+								/>
+							</MuiPickersUtilsProvider>
+						</div>
+						<div className="gender_main" onClick={gender_handel}>
+							<div>Gender :</div>
+							<FormControl>
+								<RadioGroup
+									row
+									aria-labelledby="demo-row-radio-buttons-group-label"
+									name="row-radio-buttons-group"
+								>
+									<FormControlLabel
+										value="Female"
+										control={<Radio />}
+										label="Female"
+										onClick={female}
+									/>
+									<FormControlLabel
+										value="Male"
+										control={<Radio />}
+										label="Male"
+										onClick={female}
+									/>
+								</RadioGroup>
+							</FormControl>
+						</div>
+						<div className="hobbies" onClick={handel_hobbies}>
+							Hobbies
+						</div>
 
-					<input type="submit" id="button" onClick={submmit_handel} />
-				</div>
-			</form>
-			{show_hobbies && (
-				<div className="hobbies_popup">
-					<div className="display">
-						<Checkbox
-							checked={checked1}
-							onChange={hobbie_one}
-							inputProps={{ "aria-label": "controlled" }}
-						/>
-						<div>Reading</div>
+						<input type="submit" id="button" onClick={submmit_handel} />
 					</div>
-					<div className="display">
-						<Checkbox
-							checked={checked2}
-							onChange={hobbie_two}
-							inputProps={{ "aria-label": "controlled" }}
-						/>
-						<div>Running</div>
+				</form>
+				{show_hobbies && (
+					<div className="hobbies_popup">
+						<div className="display">
+							<Checkbox
+								checked={checked1}
+								onChange={hobbie_one}
+								inputProps={{ "aria-label": "controlled" }}
+							/>
+							<div>Reading</div>
+						</div>
+						<div className="display">
+							<Checkbox
+								checked={checked2}
+								onChange={hobbie_two}
+								inputProps={{ "aria-label": "controlled" }}
+							/>
+							<div>Running</div>
+						</div>
+						<div className="display">
+							<Checkbox
+								checked={checked3}
+								onChange={hobbie_three}
+								inputProps={{ "aria-label": "controlled" }}
+							/>
+							<div>Writing</div>
+						</div>
 					</div>
-					<div className="display">
-						<Checkbox
-							checked={checked3}
-							onChange={hobbie_three}
-							inputProps={{ "aria-label": "controlled" }}
-						/>
-						<div>Writing</div>
-					</div>
-				</div>
-			)}
-			<br />
-			<br />
-			<br />
-			<br />
+				)}
+				<br />
+				<br />
+				<br />
+				<br />
+			</div>
+
 			<h1>
 				{/* {data.map((e) => (
 					<div key={e.id}>{e.Name}</div>
@@ -253,14 +249,10 @@ function Day() {
 			</h1>
 			<div>
 				<MaterialTable
-					title="Material"
+					title="All Profiles"
 					data={data}
 					columns={columns}
 					editable={{
-						// onRowAdd: (newRow) =>
-						// 	new Promise((resolve, reject) => {
-						// 		console.log(newRow);
-						// 	}),
 						onRowDelete: (selectedRow) =>
 							new Promise((resolve, reject) => {
 								console.log(selectedRow.tableData);
@@ -268,7 +260,6 @@ function Day() {
 								handel_delete(selectedRow.tableData.id);
 								resolve();
 							}),
-						// onClick = { handel_delete }
 					}}
 					options={{
 						actionsColumnIndex: -1,

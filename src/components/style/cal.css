@@ -65,3 +65,7 @@
 	background-color: #1976d2;
 	font-weight: 500;
 }
+.fix {
+	/* border: 1px solid black; */
+	background: whitesmoke;
+}
