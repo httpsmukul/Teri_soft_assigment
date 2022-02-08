@@ -29,6 +29,7 @@ function Day() {
 	const [gender, setgender] = useState("");
 	const [data, setdata] = useState([]);
 	const [deleteele, setdeleteele] = useState("");
+	const [update, setupdate] = useState("");
 
 	// all handeler_function
 	//for gender_handeler function
@@ -129,6 +130,15 @@ function Day() {
 		let id = arr + 1;
 		axios.delete(`http://localhost:3001/profile/${id}`);
 		window.location.reload(true);
+	}
+	function update_handeler(data1) {
+		console.log("update" + data1.id);
+		axios.put(`http://localhost:3001/profile/${data1.id}`, data1);
+		setContacts(
+			profile.map((data1) => {
+				return data1.id === id ? { ...response.data } : data1;
+			})
+		);
 	}
 	//
 	//start with page data
@@ -265,6 +275,14 @@ function Day() {
 								console.log(selectedRow.tableData);
 								setdeleteele(selectedRow.tableData.id);
 								handel_delete(selectedRow.tableData.id);
+								resolve();
+							}),
+
+						onRowUpdate: (newRow, oldRow) =>
+							new Promise((resolve, reject) => {
+								console.log(oldRow);
+								console.log("update", newRow);
+								update_handeler(newRow);
 								resolve();
 							}),
 					}}

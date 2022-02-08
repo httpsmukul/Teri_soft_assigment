@@ -5,7 +5,7 @@
       "Email": "mukulrajput9675@gmail.com",
       "Number": "9675643803",
       "DOB": "08 Feb 2000",
-      "Hobbie": "Runging",
+      "Hobbie": "Reading",
       "Gender": "Male",
       "id": 1
     },
@@ -19,23 +19,31 @@
       "id": 2
     },
     {
-      "Name": "mukulx",
-      "Email": "mukulrajput967455@gmail.com",
-      "Number": "8006525832",
-      "DOB": "08 Feb 2010",
-      "Hobbie": "Writting",
+      "Name": "Rahul",
+      "Email": "rahul@gmail.com",
+      "Number": "8006525965",
+      "DOB": "17 Feb 2022",
+      "Hobbie": "Writing",
       "Gender": "Male",
       "id": 3
-    }
-  ],
-  "comments": [
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "Name": "vishu",
+      "Email": "vishu@gmail.com",
+      "Number": "9675643806",
+      "DOB": "10 Feb 2000",
+      "Hobbie": "Reading",
+      "Gender": "Female",
+      "id": 4
+    },
+    {
+      "Name": "Ayush",
+      "Email": "ayush@gmail.com",
+      "Number": "9675643803",
+      "DOB": "11 Feb 2022",
+      "Hobbie": "Writting",
+      "Gender": "Male",
+      "id": 5
     }
-  ],
-  "profile_post": {
-    "name": "typicode"
-  }
+  ]
 }
