@@ -15,13 +15,10 @@ import FormControl from "@mui/material/FormControl";
 
 import Checkbox from "@mui/material/Checkbox";
 import "./style/cal.css";
-// import { Table } from "./userTable";
 
 function Day() {
 	const [currentDate, setCurrentData] = useState(null);
-	// const [value, setValue] = useState("female");
 	const [show_hobbies, setshow_hobbies] = useState(false);
-	// const [gender, setgender] = useState("Gender");
 	const [checked1, setChecked1] = useState(true);
 	const [checked2, setChecked2] = useState(false);
 	const [checked3, setChecked3] = useState(false);
