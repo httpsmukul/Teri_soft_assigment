@@ -1,0 +1,67 @@
+#demo-helper-text-misaligned {
+	padding: 16px !important;
+}
+.flex_add_menu {
+	display: flex;
+}
+.gender_main {
+	font-size: large;
+	height: 40px;
+	width: 250px;
+	border: 0.5px solid rgba(0, 0, 0, 0.22);
+	margin: 8px;
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.gender_pop_up {
+	height: 150px;
+	width: 150px;
+	border: 1px solid black;
+	margin: 70px 0 0 -165px;
+	border-radius: 5px;
+	position: sticky;
+}
+.gender_inside {
+	margin: 2px 0 0 10px !important;
+	/* padding: 5px; */
+}
+.hobbies {
+	/* font-size: large; */
+	height: 40px;
+	width: 120px;
+	border: 0.5px solid rgba(0, 0, 0, 0.22);
+	margin: 8px;
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.hobbies_popup {
+	height: 100px;
+	width: 125px;
+	border-radius: 5px;
+	border: 1px solid black;
+	position: absolute;
+	margin: 0 0 0 82.5%;
+	background-color: white;
+}
+.display {
+	display: flex;
+	/* margin: 5px; */
+	padding: 2px;
+}
+#button {
+	margin: 8px 0 0 0;
+	width: 150px !important;
+	height: 50px !important;
+	border-radius: 5px;
+	background-color: #1976d2;
+	font-weight: 500;
+}

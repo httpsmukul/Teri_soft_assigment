@@ -1,0 +1,32 @@
+{
+  "profile": [
+    {
+      "Name": "mukul",
+      "Email": "mukulrajput9675@gmail.com",
+      "Number": "9675643803",
+      "DOB": "08 Feb 2000",
+      "Hobbie": "Runging",
+      "Gender": "Male",
+      "id": 1
+    },
+    {
+      "Name": "Nikii",
+      "Email": "nikkirajput9675@gmail.com",
+      "Number": "9675643803",
+      "DOB": "11 Feb 2022",
+      "Hobbie": "Runging",
+      "Gender": "Female",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile_post": {
+    "name": "typicode"
+  }
+}
