@@ -1,22 +1,22 @@
+// All import section
 import axios from "axios";
 import MaterialTable from "material-table";
 import { useEffect, useState } from "react";
-
 import DateMomentUtils from "@date-io/moment";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-//
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-
 import Checkbox from "@mui/material/Checkbox";
 import "./style/cal.css";
-
+//
+// start with component function
 function Day() {
+	// ALl usestate constant vaible
 	const [currentDate, setCurrentData] = useState(null);
 	const [show_hobbies, setshow_hobbies] = useState(false);
 	const [checked1, setChecked1] = useState(true);
@@ -30,13 +30,17 @@ function Day() {
 	const [data, setdata] = useState([]);
 	const [deleteele, setdeleteele] = useState("");
 
+	// all handeler_function
+	//for gender_handeler function
 	const gender_handel = () => {
-		console.log();
+		console.log("working");
 	};
+	//for seting gender
 	const female = (e) => {
 		console.log(e.target.value);
 		setgender(e.target.value);
 	};
+	// hobbie handeler functions
 	const hobbie_one = (event) => {
 		setChecked1(event.target.checked);
 		sethobbie("Reading");
@@ -46,14 +50,12 @@ function Day() {
 	const hobbie_two = (event) => {
 		setChecked2(event.target.checked);
 		sethobbie("Runging");
-
 		setChecked1(false);
 		setChecked3(false);
 	};
 	const hobbie_three = (event) => {
 		setChecked3(event.target.checked);
 		sethobbie("Writting");
-
 		setChecked1(false);
 		setChecked2(false);
 	};
@@ -61,6 +63,8 @@ function Day() {
 		console.log("hobbeies");
 		setshow_hobbies(!show_hobbies);
 	};
+
+	// main data post function
 	const submmit_handel = () => {
 		let Date = date(currentDate);
 		function date(currentDate) {
@@ -77,6 +81,7 @@ function Day() {
 			}
 			return null;
 		}
+		// here we push data into db.json file
 		axios
 			.post("http://localhost:3001/profile", {
 				Name: name,
@@ -93,6 +98,8 @@ function Day() {
 				console.log(error);
 			});
 	};
+	//
+	//useEffect section for get data from db.json file
 	useEffect(() => {
 		axios
 			.get("http://localhost:3001/profile")
@@ -105,13 +112,7 @@ function Day() {
 				console.log(error);
 			});
 	}, []);
-
-	const data12 = [
-		{ name: "ramesh", age: 12 },
-		{ name: "vikash", age: 13 },
-		{ name: "shree", age: 16 },
-		{ name: "vikas ", age: 15 },
-	];
+	//table section for difinding title
 	const columns = [
 		{ title: "ID", field: "id" },
 		{ title: "Name", field: "Name" },
@@ -121,7 +122,7 @@ function Day() {
 		{ title: "DOB", field: "DOB" },
 		{ title: "Gender", field: "Gender" },
 	];
-	// for delete request
+	// for delete request for delete button function
 	function handel_delete(arr) {
 		console.log("deelete");
 		console.log(arr);
@@ -129,8 +130,11 @@ function Day() {
 		axios.delete(`http://localhost:3001/profile/${id}`);
 		window.location.reload(true);
 	}
+	//
+	//start with page data
 	return (
 		<>
+			{/* starting */}
 			<div className="fix">
 				<form>
 					<div className="flex_add_menu">
@@ -161,6 +165,7 @@ function Day() {
 						</div>
 						<br />
 						<br />
+						{/* date picker ___________ */}
 						<div>
 							<MuiPickersUtilsProvider
 								utils={DateMomentUtils}
@@ -175,6 +180,8 @@ function Day() {
 								/>
 							</MuiPickersUtilsProvider>
 						</div>
+
+						{/* gebder section ______________________ */}
 						<div className="gender_main" onClick={gender_handel}>
 							<div>Gender :</div>
 							<FormControl>
@@ -205,6 +212,7 @@ function Day() {
 						<input type="submit" id="button" onClick={submmit_handel} />
 					</div>
 				</form>
+				{/* conditional rendring ____________________*/}
 				{show_hobbies && (
 					<div className="hobbies_popup">
 						<div className="display">
@@ -244,6 +252,8 @@ function Day() {
 					<div key={e.id}>{e.Name}</div>
 				))} */}
 			</h1>
+
+			{/* table section _______________________________________ */}
 			<div>
 				<MaterialTable
 					title="All Profiles"
@@ -263,7 +273,6 @@ function Day() {
 					}}
 				></MaterialTable>
 			</div>
-			<div>{/*  */}</div>
 		</>
 	);
 }
