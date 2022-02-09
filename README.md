@@ -6,9 +6,9 @@ hello sir/mam!
 <h3>I used these Task</h3>
 
 - React
-- axiso
+- axiso 
 - useEffect
-- json_server
+- json_server(make sure your port is diffrent for react and json server, i used this command for chnage json port and run json server   ( json-server --watch db.json --port 3001   )
 - Material-UI
 - Material_table etc
 
