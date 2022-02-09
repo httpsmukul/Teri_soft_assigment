@@ -33,6 +33,7 @@ hello sir/mam!
   - Material_table
   
  funcanality - 
+  - adding_row
   - searching
   - pagenation
   - delete_row
